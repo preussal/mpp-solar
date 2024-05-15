@@ -115,7 +115,7 @@ COMMANDS = {
         "type": "QUERY",
         "response_type": "SEQUENTIAL",
         "response": [
-            [ "int", "PV Generated Energy today", "Wh", {"icon": "mdi:counter", "device-class": "energy", "state_class": "total"}]
+            [ "int:r/1000", "PV Generated Energy today", "kWh", {"icon": "mdi:counter", "device-class": "energy", "state_class": "total"}]
         ],
         "test_responses": [
             b"^D009000091\xba\x10\r",
