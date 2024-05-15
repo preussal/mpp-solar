@@ -2,6 +2,7 @@ import logging
 
 from .abstractprotocol import AbstractProtocol
 from .protocol_helpers import crcPI as crc
+from datetime import datetime
 
 log = logging.getLogger("pi18")
 
@@ -105,6 +106,20 @@ COMMANDS = {
             b"^D009000091\xba\x10\r",
         ],
         "regex": "ED(\\d\\d\\d\\d\\d\\d\\d\\d)$",
+    },
+    "EtoDay": {
+        "name": "EtoDay",
+        "prefix": "^P013",
+        "description": "today PV Generated Energy",
+        "help": " -- display today PV generated energy",
+        "type": "QUERY",
+        "response_type": "SEQUENTIAL",
+        "response": [
+            [ "int", "PV Generated Energy today", "Wh", {"icon": "mdi:counter", "device-class": "energy", "state_class": "total"}]
+        ],
+        "test_responses": [
+            b"^D009000091\xba\x10\r",
+        ],
     },
     "ID": {
         "name": "ID",
@@ -647,7 +662,11 @@ class pi18(AbstractProtocol):
         """
         log.info(f"Using protocol {self._protocol_id} with {len(self.COMMANDS)} commands")
         # These need to be set to allow other functions to work`
-        self._command = command
+        if command == "EtoDay":
+            self._command = "ED" + datetime.today().strftime('%Y%m%d')
+        else:
+            self._command = command
+
         self._command_defn = self.get_command_defn(command)
         # End of required variables setting
         if self._command_defn is None:
