@@ -33,12 +33,7 @@ COMMANDS = {
         "type": "QUERY",
         "response_type": "SEQUENTIAL",
         "response": [
-            [
-                "int",
-                "Total PV Generated Energy",
-                "Wh",
-                {"icon": "mdi:counter", "device-class": "energy", "state_class": "total"},
-            ]
+            [ "int:r/1000", "Total PV Generated Energy", "kWh", {"icon": "mdi:counter", "device-class": "energy", "state_class": "total"}]
         ],
         "test_responses": [
             b"",
@@ -52,13 +47,7 @@ COMMANDS = {
         "type": "QUERY",
         "response_type": "INDEXED",
         "response": [
-            [
-                1,
-                "PV Generated Energy for Year",
-                "int",
-                "Wh",
-                {"icon": "mdi:counter", "device-class": "energy", "state_class": "total"},
-            ],
+            [1, "PV Generated Energy for Year", "int:r/1000", "kWh", {"icon": "mdi:counter", "device-class": "energy", "state_class": "total"}],
             [2, "Year", "info:cv[:4]", ""],
         ],
         "test_responses": [
@@ -74,13 +63,7 @@ COMMANDS = {
         "type": "QUERY",
         "response_type": "INDEXED",
         "response": [
-            [
-                1,
-                "PV Generated Energy for Month",
-                "int",
-                "Wh",
-                {"icon": "mdi:counter", "device-class": "energy", "state_class": "total"},
-            ],
+            [1, "PV Generated Energy for Month", "int:r/1000", "kWh", {"icon": "mdi:counter", "device-class": "energy", "state_class": "total"}],
             [2, "Year", "info:cv[:4]", ""],
             [3, "Month", "info:calendar.month_name[int(cv[4:6])]", ""],
         ],
@@ -97,7 +80,7 @@ COMMANDS = {
         "type": "QUERY",
         "response_type": "INDEXED",
         "response": [
-            [1, "PV Generated Energy for Day", "int", "Wh", {"icon": "mdi:counter", "device-class": "energy"}],
+            [1, "PV Generated Energy for Day", "int:r/1000", "kWh", {"icon": "mdi:counter", "device-class": "energy"}],
             [2, "Year", "info:cv[:4]", ""],
             [3, "Month", "info:calendar.month_name[int(cv[4:6])]", ""],
             [4, "Day", "info:cv[6:]", ""],
