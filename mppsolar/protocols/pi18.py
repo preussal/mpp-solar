@@ -94,7 +94,7 @@ COMMANDS = {
         "name": "EtoDay",
         "prefix": "^P013",
         "description": "today PV Generated Energy",
-        "help": " -- display today PV generated energy",
+        "help": " -- display today PV generated energy (need restart of the Container)",
         "type": "QUERY",
         "response_type": "SEQUENTIAL",
         "response": [
