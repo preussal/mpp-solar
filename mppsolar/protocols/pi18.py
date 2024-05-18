@@ -236,7 +236,7 @@ COMMANDS = {
             ["option", "Load connection", ["disconnect", "connect"]],
             ["option", "Battery power direction", ["donothing", "charge", "discharge"]],
             ["option", "DC/AC power direction", ["donothing", "AC-DC", "DC-AC"]],
-            ["option", "Line power direction", ["donothing", "input", "output"]],
+            ["option", "Grid power direction", ["donothing", "input", "output"]],
             ["int", "Local parallel ID", ""],
         ],
         "test_responses": [
