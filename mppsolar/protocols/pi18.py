@@ -441,7 +441,7 @@ COMMANDS = {
         "name": "POP",
         "prefix": "^S007",
         "description": "Set output souce priority 				(Manual Option 01)",
-        "help": " -- example: POP0 		(set Output POP0 [0: Solar-Utility-Batter],  POP1 [1: Solar-Battery-Utility]",
+        "help": " -- example: POP0 		(set Output POP0 [0: Solar-Utility-Battery],  POP1 [1: Solar-Battery-Utility]",
         "type": "SETTER",
         "response": [
             ["ack", "Command execution", {"NAK": "Failed", "ACK": "Successful"}],
